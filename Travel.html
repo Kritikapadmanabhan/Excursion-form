@@ -1,0 +1,310 @@
+<html>
+    <head>
+        <title> Students Excursion </title>
+        <style>
+            #titleName{
+                text-align: center;
+                font-size: 30;
+                font-weight: bolder;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #fff;
+                background-image: linear-gradient(#111d5e, #11698e);
+                border: 1px transparent;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                height: 50;
+                padding-top: 15;
+            }
+
+            #tableTitleName{
+                text-align: center;
+                font-size: 30;
+                font-weight: bolder;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #fff;
+                background-image: linear-gradient(#111d5e, #11698e);
+                border: 1px transparent;
+                border-radius: 20px;
+                height: 50;
+                width: 30%;
+                padding-top: 15;
+                margin-bottom: 30px;
+            }
+
+            #boxStyle{
+                background-color:transparent;
+                height: 550;
+                width: 400;
+                margin: auto;
+                border: 2px transparent;
+                border-radius: 20px;
+                box-shadow: black 4px 4px 10px;
+                opacity: 1;
+                display: block;
+            }
+
+            #bg{
+                background-image: url("travel.jpg");
+                height: 100%;
+                opacity: 0.7;
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin-top: 0;
+            }
+
+            #nameId,#placeId,#parentId,#phoneId{
+                height: 30;
+                width: 250;
+                /* text-align: center; */
+                padding-left: 20;
+                margin-top: 20;
+                border-radius: 20px;
+                border: 1px solid black;
+                background-color: #b4d3fd;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 20;
+                color: black;
+           }
+
+           #classId,#sectionId{
+                height: 30;
+                width: 100;
+                /* text-align: center; */
+                padding-left: 10;
+                margin-top: 20;
+                border-radius: 20px;
+                border: 1px solid black;
+                background-color: #b4d3fd;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 20;
+                color: black;
+                margin-right: 20;
+           }
+           #addressId{
+                height: 100;
+                width: 250;
+                /* text-align: center; */
+                padding: 15;
+                margin: 20;
+                border-radius: 20px;
+                border: 1px solid black;
+                background-color: #b4d3fd ;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 20;
+                color: black;
+           }
+
+           #accept{
+               color: black;
+               font-weight: bold;
+           }
+
+           #submitButton{
+               margin-top: 20;
+               height: 30;
+               width: 90;
+               background-image: linear-gradient(#111d5e, #11698e);
+               border: 2px transparent;
+               font-weight: 500;
+               font-size: 15;
+               opacity: 0.7;
+               transition: 0.2s;
+               cursor: pointer;
+               color: white;
+           }
+
+           #submitButton:hover {opacity: 1}
+
+           #copyright{
+               position: absolute;
+               bottom: 20;
+               left: 41%;
+                font-size: 18;
+                color: black;
+           }
+
+
+           #tableId{
+                
+                display: none;
+           }
+
+           table, th, td {
+                    border: 1px solid black;
+                    text-align: center;
+                    height: 50;
+                font-size: 20;
+                    }
+            
+        </style>
+        <script>
+            function nextPage()
+            {
+                var nameVal = document.getElementById("nameId").value;
+                if(nameVal!="" || nameVal.length>3)
+                {
+                    if(document.getElementById("classId").value!="Class")
+                    {
+                        if(document.getElementById("sectionId").value!="Section")
+                        {
+                            if(document.getElementById("placeId").value!="Places")
+                            {
+                                if(document.getElementById("parentId").value.length>3 )
+                                {
+                                    if(document.getElementById("phoneId").value.length==10)
+                                    {
+                                        if(document.getElementById("addressId").value.length>20 )
+                                        {
+                                            if(document.getElementById('accept').checked)
+                                            {
+                                                resultScreen();
+                                            }
+                                            else { alert("Please agree to submit detail!"); }
+                                        }
+                                        else { alert( "Please provide valid address!" );}
+                                    }
+                                    else { alert( "Please provide valid phone number!" );}
+                                }
+                                else { alert( "Please provide valid parent name!" );}
+                            }
+                            else { alert( "Please provide place!" );}
+                        }
+                        else { alert( "Please provide section!" );}
+                    }
+                    else { alert( "Please provide class!" ); }
+                }
+                else { alert( "Please provide valid name!" ); }
+            }
+
+            function resultScreen()
+            {
+                boxStyle.style.display = "none";
+                tableId.style.display = "block";
+                
+                var nameVal = document.getElementById("nameId").value;
+                document.getElementById("spanName").innerHTML=nameVal;
+                
+                var classVal = document.getElementById("classId").value;
+                document.getElementById("spanClass").innerHTML=classVal;
+                
+                var sectionVal = document.getElementById("sectionId").value;
+                document.getElementById("spanSection").innerHTML=sectionVal;
+                
+                var placeVal = document.getElementById("placeId").value;
+                document.getElementById("spanPlace").innerHTML=placeVal;
+                
+                var parentVal = document.getElementById("parentId").value;
+                document.getElementById("spanParent").innerHTML=parentVal;
+
+                var phoneVal = document.getElementById("phoneId").value;
+                document.getElementById("spanPhone").innerHTML=phoneVal;
+
+                var addressVal = document.getElementById("addressId").value;
+                document.getElementById("spanAddress").innerHTML=addressVal;
+            }
+
+            function backButton()
+            {
+                boxStyle.style.display = "block";
+                tableId.style.display = "none";
+            }
+                
+        </script>
+    </head>
+
+    <body>
+        <div id="bg">
+            <br><br><br>
+            <div id="boxStyle">
+                <div id="titleName">
+                    STUDENTS EXCURSION
+                </div>
+                <center>
+                    <input id ="nameId" type="text" name="Student Name" placeholder="Name" size="15" required>
+                    <br>
+                    <select id ="classId">
+                        <option value="Class">Class</option>
+                        <option value="VIII">VIII</option>
+                        <option value="IX">IX</option>
+                        <option value="X">X</option>
+                        <option value="XI">XI</option>
+                        <option value="XII">XII</option> 
+                    </select>
+                    
+                    <select id ="sectionId">
+                        <option value="Section">Section</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                    
+                    <select id="placeId">
+                        <option value="Places">Places</option>
+                        <option value="MADURAI">Madurai</option>
+                        <option value="COCHIN">Cochin</option>
+                        <option value="YERCAUD">Yercaud</option>
+                        <option value="OOTY">Ooty</option>
+                        <option value="CHENNAI">Chennai</option>
+                        </select>
+                        <br>
+                        <input id="parentId" type="text" name="name of the parent" placeholder="Name of the parent" size="20" required/>
+                        <br>
+                        <input id="phoneId" type="number" name="phone number" placeholder="Phone Number" size="10" required/>
+                        <br>
+                        <textarea id="addressId" rows="4" cols="30" name="Address">Address
+                        </textarea>
+                        <br>
+                        <input type="checkbox" id="accept" name="Accept" value="Accept">
+                        <label id="Accept">I Accept to submit details for trip</label>
+                        <br>
+                        <input type="submit" id="submitButton" onclick="nextPage()">
+
+                </center>
+            </div>
+            <div id="tableId">
+                <center>
+                    <div id="tableTitleName">
+                        STUDENTS EXCURSION
+                    </div>
+                    <table style="width: 50%">
+                        <tr>
+                            <th>Name</th>
+                            <td><span id="spanName">-</span></td>
+                        </tr>
+                        <tr>
+                            <th>Class</th>
+                            <td><span id="spanClass">-</span></td>
+                        </tr>
+                        <tr>
+                            <th>Section</th>
+                            <td><span id="spanSection">-</span></td>
+                        </tr>
+                        <tr>
+                            <th>Place</th>
+                            <td><span id="spanPlace">-</span></td>
+                        </tr>
+                        <tr>
+                            <th>Parent name</th>
+                            <td><span id="spanParent">-</span></td>
+                        </tr>
+                        <tr>
+                            <th>Phone number</th>
+                            <td><span id="spanPhone">-</span></td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td><span id="spanAddress">-</span></td>
+                        </tr>
+                    </table>
+                    <input type="submit" id="submitButton" onclick="backButton()" value="Back">
+                </center>
+            </div>
+            <center>
+            <div id="copyright">
+                &copy; All Rights Reserved 2021 by Kritika
+            </div>
+        </center>
+        </div>
+    </body>
+</html>
